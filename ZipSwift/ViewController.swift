@@ -10,6 +10,17 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var zipCode: UITextField!
+  @IBOutlet weak var searchButton: UIButton!
+  
+  @IBAction func zipCodeChanged(sender: AnyObject) {
+    searchButton.enabled = count(zipCode.text) == 5
+  }
+  
+  @IBAction func searchZipCode(sender: AnyObject) {
+    loadPlaces(zipCode.text)
+  }
+  
   func configureRestKit() {
     let url = NSURL(string: "http://api.zippopotam.us")
     let client = AFHTTPClient(baseURL: url)
@@ -52,7 +63,6 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     configureRestKit()
-    loadPlaces("32256")
   }
 
   override func didReceiveMemoryWarning() {
