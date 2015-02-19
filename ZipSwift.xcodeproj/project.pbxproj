@@ -14,6 +14,9 @@
 		C70C60411A95285D002A8773 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C70C60401A95285D002A8773 /* Images.xcassets */; };
 		C70C60441A95285D002A8773 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70C60421A95285D002A8773 /* LaunchScreen.xib */; };
 		C70C60501A95285D002A8773 /* ZipSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C604F1A95285D002A8773 /* ZipSwiftTests.swift */; };
+		C7FE30B41A953568009EAD1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE30B31A953568009EAD1C /* SystemConfiguration.framework */; };
+		C7FE30B61A953571009EAD1C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE30B51A953571009EAD1C /* MobileCoreServices.framework */; };
+		C7FE30B81A953A63009EAD1C /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE30B71A953A63009EAD1C /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +44,9 @@
 		C70C604E1A95285D002A8773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C70C604F1A95285D002A8773 /* ZipSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipSwiftTests.swift; sourceTree = "<group>"; };
 		C7FE30B21A9533DE009EAD1C /* ZipSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZipSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		C7FE30B31A953568009EAD1C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C7FE30B51A953571009EAD1C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		C7FE30B71A953A63009EAD1C /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FE30B61A953571009EAD1C /* MobileCoreServices.framework in Frameworks */,
+				C7FE30B41A953568009EAD1C /* SystemConfiguration.framework in Frameworks */,
 				3D9FB162A046396F6104B066 /* libPods-ZipSwift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +100,7 @@
 				C70C60421A95285D002A8773 /* LaunchScreen.xib */,
 				C70C60371A95285D002A8773 /* Supporting Files */,
 				C7FE30B21A9533DE009EAD1C /* ZipSwift-Bridging-Header.h */,
+				C7FE30B71A953A63009EAD1C /* Place.swift */,
 			);
 			path = ZipSwift;
 			sourceTree = "<group>";
@@ -133,6 +142,8 @@
 		F6E1171D4D68298ADF6DBD5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7FE30B51A953571009EAD1C /* MobileCoreServices.framework */,
+				C7FE30B31A953568009EAD1C /* SystemConfiguration.framework */,
 				B638FFBD2C4707474B437615 /* libPods-ZipSwift.a */,
 			);
 			name = Frameworks;
@@ -273,6 +284,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FE30B81A953A63009EAD1C /* Place.swift in Sources */,
 				C70C603C1A95285D002A8773 /* ViewController.swift in Sources */,
 				C70C603A1A95285D002A8773 /* AppDelegate.swift in Sources */,
 			);
