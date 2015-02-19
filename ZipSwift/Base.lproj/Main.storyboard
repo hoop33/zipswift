@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7515.2" systemVersion="14D72i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7512"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,21 +17,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oxk-S8-ypQ">
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oxk-S8-ypQ">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
                                 <items>
                                     <navigationItem title="ZipSwift" id="AJi-NQ-4pi"/>
                                 </items>
                             </navigationBar>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LGW-jr-t4d">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip Code" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="LGW-jr-t4d">
                                 <rect key="frame" x="16" y="79" width="100" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Puz-2o-woi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                 <connections>
                                     <action selector="zipCodeChanged:" destination="vXZ-lx-hvc" eventType="editingChanged" id="mME-hJ-uhC"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh0-OA-Q2O">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vh0-OA-Q2O">
                                 <rect key="frame" x="124" y="79" width="48" height="30"/>
                                 <state key="normal" title="Search">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,10 +43,27 @@
                                     <action selector="searchZipCode:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="5cg-Qg-qlE"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="3g9-R5-A14">
+                                <rect key="frame" x="0.0" y="117" width="600" height="483"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3g9-R5-A14" firstAttribute="trailing" secondItem="oxk-S8-ypQ" secondAttribute="trailing" id="70O-7p-tgx"/>
+                            <constraint firstAttribute="trailing" secondItem="oxk-S8-ypQ" secondAttribute="trailing" id="GXG-Ks-QQZ"/>
+                            <constraint firstItem="oxk-S8-ypQ" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="OXQ-lr-ezV"/>
+                            <constraint firstItem="LGW-jr-t4d" firstAttribute="top" secondItem="vh0-OA-Q2O" secondAttribute="top" id="bCS-zz-aNF"/>
+                            <constraint firstItem="3g9-R5-A14" firstAttribute="bottom" secondItem="2fi-mo-0CV" secondAttribute="top" id="cnW-sc-CpR"/>
+                            <constraint firstItem="vh0-OA-Q2O" firstAttribute="leading" secondItem="LGW-jr-t4d" secondAttribute="trailing" constant="8" symbolic="YES" id="dmK-VB-HWx"/>
+                            <constraint firstItem="LGW-jr-t4d" firstAttribute="top" secondItem="oxk-S8-ypQ" secondAttribute="bottom" constant="15" id="fTH-m8-wcs"/>
+                            <constraint firstItem="oxk-S8-ypQ" firstAttribute="leading" secondItem="3g9-R5-A14" secondAttribute="leading" id="hVf-A7-zJj"/>
+                            <constraint firstItem="LGW-jr-t4d" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="nbd-zJ-bOu"/>
+                            <constraint firstItem="oxk-S8-ypQ" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="pQh-rm-Tz0"/>
+                            <constraint firstItem="3g9-R5-A14" firstAttribute="top" secondItem="LGW-jr-t4d" secondAttribute="bottom" constant="8" symbolic="YES" id="yZg-nT-s6D"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="mapView" destination="3g9-R5-A14" id="M0J-4c-ubF"/>
                         <outlet property="searchButton" destination="vh0-OA-Q2O" id="Jty-ze-Eq8"/>
                         <outlet property="zipCode" destination="LGW-jr-t4d" id="eB3-3h-yKJ"/>
                     </connections>

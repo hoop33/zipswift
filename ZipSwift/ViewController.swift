@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
 
   @IBOutlet weak var zipCode: UITextField!
   @IBOutlet weak var searchButton: UIButton!
+  @IBOutlet weak var mapView: MKMapView!
   
   @IBAction func zipCodeChanged(sender: AnyObject) {
     searchButton.enabled = count(zipCode.text) == 5
@@ -51,7 +53,21 @@ class ViewController: UIViewController {
       success: { (operation, mappingResult) -> Void in
         let places = mappingResult.array() as! [Place]
         for place in places {
-          println("\(place.city), \(place.state)")
+          if let latitude = place.latitude, let longitude = place.longitude {
+            let formatter = NSNumberFormatter()
+            let location = CLLocationCoordinate2D(
+              latitude: formatter.numberFromString(latitude)!.doubleValue,
+              longitude: formatter.numberFromString(longitude)!.doubleValue
+            )
+            let span = MKCoordinateSpanMake(1, 1)
+            let region = MKCoordinateRegionMake(location, span)
+            self.mapView.setRegion(region, animated: true)
+            
+            let annotation = MKPointAnnotation()
+            annotation.setCoordinate(location)
+            annotation.title = "\(place.city!), \(place.state!)"
+            self.mapView.addAnnotation(annotation)
+          }
         }
       },
       failure: { (operation, error) -> Void in

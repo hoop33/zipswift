@@ -17,6 +17,7 @@
 		C7FE30B41A953568009EAD1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE30B31A953568009EAD1C /* SystemConfiguration.framework */; };
 		C7FE30B61A953571009EAD1C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE30B51A953571009EAD1C /* MobileCoreServices.framework */; };
 		C7FE30B81A953A63009EAD1C /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE30B71A953A63009EAD1C /* Place.swift */; };
+		C7FE30BA1A9664FE009EAD1C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE30B91A9664FE009EAD1C /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C7FE30B31A953568009EAD1C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C7FE30B51A953571009EAD1C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C7FE30B71A953A63009EAD1C /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		C7FE30B91A9664FE009EAD1C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FE30BA1A9664FE009EAD1C /* MapKit.framework in Frameworks */,
 				C7FE30B61A953571009EAD1C /* MobileCoreServices.framework in Frameworks */,
 				C7FE30B41A953568009EAD1C /* SystemConfiguration.framework in Frameworks */,
 				3D9FB162A046396F6104B066 /* libPods-ZipSwift.a in Frameworks */,
@@ -142,6 +145,7 @@
 		F6E1171D4D68298ADF6DBD5E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C7FE30B91A9664FE009EAD1C /* MapKit.framework */,
 				C7FE30B51A953571009EAD1C /* MobileCoreServices.framework */,
 				C7FE30B31A953568009EAD1C /* SystemConfiguration.framework */,
 				B638FFBD2C4707474B437615 /* libPods-ZipSwift.a */,
