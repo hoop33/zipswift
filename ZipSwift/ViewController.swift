@@ -53,7 +53,7 @@ class ViewController: UIViewController {
       success: { (operation, mappingResult) -> Void in
         let places = mappingResult.array() as! [Place]
         for place in places {
-          if let latitude = place.latitude, let longitude = place.longitude {
+          if let latitude = place.latitude, longitude = place.longitude {
             let formatter = NSNumberFormatter()
             let location = CLLocationCoordinate2D(
               latitude: formatter.numberFromString(latitude)!.doubleValue,
