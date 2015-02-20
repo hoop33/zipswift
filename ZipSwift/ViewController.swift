@@ -82,9 +82,16 @@ class ViewController: UIViewController {
     }
   }
   
+  func didTapMap(sender: AnyObject) {
+    zipCode.resignFirstResponder()
+  }
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     configureRestKit()
+    
+    let mapTapGestureRecognizer = UITapGestureRecognizer(target: self, action: "didTapMap:")
+    mapView.addGestureRecognizer(mapTapGestureRecognizer)
   }
 
   override func didReceiveMemoryWarning() {
