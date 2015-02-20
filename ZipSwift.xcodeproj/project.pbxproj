@@ -7,17 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		30D59CD09A73FB77D48BBB44 /* libPods-ZipSwiftTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBC98996F141111AC792ABD2 /* libPods-ZipSwiftTests.a */; };
 		3D9FB162A046396F6104B066 /* libPods-ZipSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B638FFBD2C4707474B437615 /* libPods-ZipSwift.a */; };
 		C70C603A1A95285D002A8773 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C60391A95285D002A8773 /* AppDelegate.swift */; };
 		C70C603C1A95285D002A8773 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C603B1A95285D002A8773 /* ViewController.swift */; };
 		C70C603F1A95285D002A8773 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70C603D1A95285D002A8773 /* Main.storyboard */; };
 		C70C60411A95285D002A8773 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C70C60401A95285D002A8773 /* Images.xcassets */; };
 		C70C60441A95285D002A8773 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = C70C60421A95285D002A8773 /* LaunchScreen.xib */; };
-		C70C60501A95285D002A8773 /* ZipSwiftTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C604F1A95285D002A8773 /* ZipSwiftTests.swift */; };
 		C7FE30B41A953568009EAD1C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE30B31A953568009EAD1C /* SystemConfiguration.framework */; };
 		C7FE30B61A953571009EAD1C /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE30B51A953571009EAD1C /* MobileCoreServices.framework */; };
 		C7FE30B81A953A63009EAD1C /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE30B71A953A63009EAD1C /* Place.swift */; };
 		C7FE30BA1A9664FE009EAD1C /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C7FE30B91A9664FE009EAD1C /* MapKit.framework */; };
+		C7FE30BC1A97E613009EAD1C /* ViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE30BB1A97E613009EAD1C /* ViewControllerTests.swift */; };
+		C7FE30BD1A97E669009EAD1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C603B1A95285D002A8773 /* ViewController.swift */; };
+		C7FE30BE1A97E73C009EAD1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C70C603D1A95285D002A8773 /* Main.storyboard */; };
+		C7FE30BF1A97E9F1009EAD1C /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FE30B71A953A63009EAD1C /* Place.swift */; };
+		C7FE30C01A97E9F9009EAD1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70C60391A95285D002A8773 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,8 +37,10 @@
 
 /* Begin PBXFileReference section */
 		15D745249B3C2653D8FE8CF2 /* Pods-ZipSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZipSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZipSwift/Pods-ZipSwift.debug.xcconfig"; sourceTree = "<group>"; };
+		98F1E62B6FCD2E06BD46DF33 /* Pods-ZipSwiftTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZipSwiftTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZipSwiftTests/Pods-ZipSwiftTests.release.xcconfig"; sourceTree = "<group>"; };
 		B638FFBD2C4707474B437615 /* libPods-ZipSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZipSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F63B8820DDB3BFF8B4465A /* Pods-ZipSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZipSwift.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZipSwift/Pods-ZipSwift.release.xcconfig"; sourceTree = "<group>"; };
+		BB0AFE94911F92D78D643381 /* Pods-ZipSwiftTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZipSwiftTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZipSwiftTests/Pods-ZipSwiftTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C70C60341A95285D002A8773 /* ZipSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZipSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70C60381A95285D002A8773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C70C60391A95285D002A8773 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -43,12 +50,13 @@
 		C70C60431A95285D002A8773 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		C70C60491A95285D002A8773 /* ZipSwiftTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZipSwiftTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70C604E1A95285D002A8773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C70C604F1A95285D002A8773 /* ZipSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZipSwiftTests.swift; sourceTree = "<group>"; };
 		C7FE30B21A9533DE009EAD1C /* ZipSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ZipSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		C7FE30B31A953568009EAD1C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C7FE30B51A953571009EAD1C /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		C7FE30B71A953A63009EAD1C /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		C7FE30B91A9664FE009EAD1C /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		C7FE30BB1A97E613009EAD1C /* ViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerTests.swift; sourceTree = "<group>"; };
+		EBC98996F141111AC792ABD2 /* libPods-ZipSwiftTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZipSwiftTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30D59CD09A73FB77D48BBB44 /* libPods-ZipSwiftTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,8 +128,8 @@
 		C70C604C1A95285D002A8773 /* ZipSwiftTests */ = {
 			isa = PBXGroup;
 			children = (
-				C70C604F1A95285D002A8773 /* ZipSwiftTests.swift */,
 				C70C604D1A95285D002A8773 /* Supporting Files */,
+				C7FE30BB1A97E613009EAD1C /* ViewControllerTests.swift */,
 			);
 			path = ZipSwiftTests;
 			sourceTree = "<group>";
@@ -138,6 +147,8 @@
 			children = (
 				15D745249B3C2653D8FE8CF2 /* Pods-ZipSwift.debug.xcconfig */,
 				B9F63B8820DDB3BFF8B4465A /* Pods-ZipSwift.release.xcconfig */,
+				BB0AFE94911F92D78D643381 /* Pods-ZipSwiftTests.debug.xcconfig */,
+				98F1E62B6FCD2E06BD46DF33 /* Pods-ZipSwiftTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -149,6 +160,7 @@
 				C7FE30B51A953571009EAD1C /* MobileCoreServices.framework */,
 				C7FE30B31A953568009EAD1C /* SystemConfiguration.framework */,
 				B638FFBD2C4707474B437615 /* libPods-ZipSwift.a */,
+				EBC98996F141111AC792ABD2 /* libPods-ZipSwiftTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -179,9 +191,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C70C60561A95285D002A8773 /* Build configuration list for PBXNativeTarget "ZipSwiftTests" */;
 			buildPhases = (
+				EACDF16681BE069010216E3B /* Check Pods Manifest.lock */,
 				C70C60451A95285D002A8773 /* Sources */,
 				C70C60461A95285D002A8773 /* Frameworks */,
 				C70C60471A95285D002A8773 /* Resources */,
+				D2584501452D1A2C4207F8DD /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -245,6 +259,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7FE30BE1A97E73C009EAD1C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,6 +279,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZipSwift/Pods-ZipSwift-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D2584501452D1A2C4207F8DD /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZipSwiftTests/Pods-ZipSwiftTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EACDF16681BE069010216E3B /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EF8A02EDE92607ACF75505D3 /* Check Pods Manifest.lock */ = {
@@ -298,7 +343,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C70C60501A95285D002A8773 /* ZipSwiftTests.swift in Sources */,
+				C7FE30C01A97E9F9009EAD1C /* AppDelegate.swift in Sources */,
+				C7FE30BF1A97E9F1009EAD1C /* Place.swift in Sources */,
+				C7FE30BD1A97E669009EAD1C /* ViewController.swift in Sources */,
+				C7FE30BC1A97E613009EAD1C /* ViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,6 +485,7 @@
 		};
 		C70C60571A95285D002A8773 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB0AFE94911F92D78D643381 /* Pods-ZipSwiftTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -450,12 +499,14 @@
 				INFOPLIST_FILE = ZipSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZipSwift/ZipSwift-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZipSwift.app/ZipSwift";
 			};
 			name = Debug;
 		};
 		C70C60581A95285D002A8773 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 98F1E62B6FCD2E06BD46DF33 /* Pods-ZipSwiftTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -465,6 +516,7 @@
 				INFOPLIST_FILE = ZipSwiftTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "ZipSwift/ZipSwift-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ZipSwift.app/ZipSwift";
 			};
 			name = Release;
