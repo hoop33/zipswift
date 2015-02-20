@@ -53,27 +53,32 @@ class ViewController: UIViewController {
       success: { (operation, mappingResult) -> Void in
         let places = mappingResult.array() as! [Place]
         for place in places {
-          if let latitude = place.latitude, longitude = place.longitude {
-            let formatter = NSNumberFormatter()
-            let location = CLLocationCoordinate2D(
-              latitude: formatter.numberFromString(latitude)!.doubleValue,
-              longitude: formatter.numberFromString(longitude)!.doubleValue
-            )
-            let span = MKCoordinateSpanMake(1, 1)
-            let region = MKCoordinateRegionMake(location, span)
-            self.mapView.setRegion(region, animated: true)
-            
-            let annotation = MKPointAnnotation()
-            annotation.setCoordinate(location)
-            annotation.title = "\(place.city!), \(place.state!)"
-            self.mapView.addAnnotation(annotation)
-          }
+          self.addPlaceToMap(place)
         }
       },
       failure: { (operation, error) -> Void in
         println("\(error)")
       }
     )
+  }
+  
+  func addPlaceToMap(place: Place) {
+    if let latitude = place.latitude, longitude = place.longitude {
+      let formatter = NSNumberFormatter()
+      let location = CLLocationCoordinate2D(
+        latitude: formatter.numberFromString(latitude)!.doubleValue,
+        longitude: formatter.numberFromString(longitude)!.doubleValue
+      )
+      let span = MKCoordinateSpanMake(1, 1)
+      let region = MKCoordinateRegionMake(location, span)
+      self.mapView.setRegion(region, animated: true)
+      
+      let annotation = MKPointAnnotation()
+      annotation.setCoordinate(location)
+      annotation.title = "\(place.city!), \(place.state!)"
+      annotation.subtitle = "lat: \(latitude), long: \(longitude)"
+      self.mapView.addAnnotation(annotation)
+    }
   }
   
   override func viewDidLoad() {
@@ -85,7 +90,5 @@ class ViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
-
 }
 
