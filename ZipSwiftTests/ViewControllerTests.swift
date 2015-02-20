@@ -8,10 +8,19 @@
 
 import UIKit
 import XCTest
+import MapKit
 
 class ViewControllerTests: XCTestCase {
   
   var viewController: ViewController!
+  let place: Place = {
+    let place = Place()
+    place.city = "Jacksonville"
+    place.state = "FL"
+    place.latitude = "30.1459"
+    place.longitude = "-81.5739"
+    return place
+  }()
   
   override func setUp() {
     super.setUp()
@@ -38,5 +47,14 @@ class ViewControllerTests: XCTestCase {
     viewController.zipCode.text = "1234"
     viewController.zipCodeChanged(viewController.zipCode)
     XCTAssertFalse(viewController.searchButton.enabled)
+  }
+  
+  func testAddPlaceShouldAddAnnotation() {
+    viewController.addPlaceToMap(place)
+    let annotations = viewController.mapView.annotations as! [MKAnnotation]
+    XCTAssertEqual(1, annotations.count)
+    let annotation = annotations[0]
+    XCTAssertEqual("Jacksonville, FL", annotation.title!)
+    XCTAssertEqual("lat: 30.1459, long: -81.5739", annotation.subtitle!)
   }
 }
