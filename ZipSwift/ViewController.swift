@@ -20,6 +20,7 @@ class ViewController: UIViewController {
   }
   
   @IBAction func searchZipCode(sender: AnyObject) {
+    zipCode.resignFirstResponder()
     loadPlaces(zipCode.text)
   }
   
