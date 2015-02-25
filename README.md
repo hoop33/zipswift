@@ -15,6 +15,7 @@ ZipSwift was written to demonstrate how to develop iOS applications in Swift. It
 * Using Cocoapods
 * Calling Objective-C code from Swift
 * Using RestKit to call REST services
+* Using Core Data, integrated with RestKit
 * Displaying locations using MapKit
 * Writing unit tests using XCTest
 

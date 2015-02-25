@@ -9,12 +9,30 @@
 import UIKit
 import XCTest
 import MapKit
+import CoreData
 
 class ViewControllerTests: XCTestCase {
   
   var viewController: ViewController!
-  let place: Place = {
-    let place = Place()
+  
+  lazy var managedObjectContext: NSManagedObjectContext = {
+    let managedObjectModel = NSManagedObjectModel.mergedModelFromBundles(nil)
+    let persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: managedObjectModel!)
+    let persistentStore = persistentStoreCoordinator.addPersistentStoreWithType(NSInMemoryStoreType,
+      configuration: nil,
+      URL: nil,
+      options: nil,
+      error: nil
+    )
+    let managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+    managedObjectContext.persistentStoreCoordinator = persistentStoreCoordinator
+    return managedObjectContext
+  }()
+  
+  lazy var place: Place = {
+    let place = Place(entity: NSEntityDescription.entityForName("Place",
+      inManagedObjectContext: self.managedObjectContext)!,
+      insertIntoManagedObjectContext: self.managedObjectContext)
     place.city = "Jacksonville"
     place.state = "FL"
     place.latitude = "30.1459"

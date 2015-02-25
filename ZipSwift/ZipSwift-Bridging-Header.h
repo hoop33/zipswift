@@ -9,6 +9,8 @@
 #ifndef ZipSwift_ZipSwift_Bridging_Header_h
 #define ZipSwift_ZipSwift_Bridging_Header_h
 
+#import <CoreData/CoreData.h>
 #import <RestKit/RestKit.h>
+#import <RestKit/CoreData.h>
 
 #endif

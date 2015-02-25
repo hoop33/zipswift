@@ -11,6 +11,8 @@ import MapKit
 
 class ViewController: UIViewController {
 
+  var persistence: Persistence?
+  
   @IBOutlet weak var zipCode: UITextField!
   @IBOutlet weak var searchButton: UIButton!
   @IBOutlet weak var mapView: MKMapView!
@@ -21,7 +23,7 @@ class ViewController: UIViewController {
   
   @IBAction func searchZipCode(sender: AnyObject) {
     zipCode.resignFirstResponder()
-    loadPlaces(zipCode.text)
+    loadZipCode(zipCode.text)
   }
   
   func configureRestKit() {
@@ -29,7 +31,18 @@ class ViewController: UIViewController {
     let client = AFHTTPClient(baseURL: url)
     let manager = RKObjectManager(HTTPClient: client)
     
-    let placeMapping = RKObjectMapping(forClass: Place.self)
+    persistence = Persistence()
+
+    // Set up zip code mapping
+    let zipCodeMapping = RKEntityMapping(forEntityForName: "ZipCode", inManagedObjectStore: persistence?.managedObjectStore)
+    zipCodeMapping.addAttributeMappingsFromDictionary([
+      "post code": "code"
+    ])
+    zipCodeMapping.identificationAttributes = ["code"]
+    
+    // Set up place mapping
+    let placeMapping = RKEntityMapping(forEntityForName: "Place",
+      inManagedObjectStore: persistence?.managedObjectStore)
     placeMapping.addAttributeMappingsFromDictionary([
       "place name": "city",
       "state abbreviation": "state",
@@ -37,30 +50,70 @@ class ViewController: UIViewController {
       "longitude": "longitude"
     ])
     
+    // Set up the relationship between them
+    zipCodeMapping.addPropertyMapping(RKRelationshipMapping(
+      fromKeyPath: "places",
+      toKeyPath: "places",
+      withMapping: placeMapping
+    ))
+    
+    // Add the response descriptor to the manager
     let responseDescriptor = RKResponseDescriptor(
-      mapping: placeMapping,
+      mapping: zipCodeMapping,
       method: .GET,
       pathPattern: "/us/:zipcode",
-      keyPath: "places",
-      statusCodes: NSIndexSet(index: 200)
+      keyPath: nil,
+      statusCodes: NSIndexSet(index: RKStatusCodeClassSuccessful)
     )
     manager.addResponseDescriptor(responseDescriptor)
+    
+    // Add the object store to the manager
+    manager.managedObjectStore = persistence?.managedObjectStore
   }
   
-  func loadPlaces(zipcode: String) {
+  func fetchFromCoreData(code: String) -> Bool {
+    let fetchRequest = NSFetchRequest(entityName: "ZipCode")
+    fetchRequest.predicate = NSPredicate(format: "code = %@", code)
+    var error: NSError?
     let manager = RKObjectManager.sharedManager()
-    manager.getObjectsAtPath("/us/\(zipcode)",
+    if let results = manager.managedObjectStore.mainQueueManagedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [ZipCode] {
+      if (results.count > 0) {
+        let item = results[0]
+        println("Fetched \(item.code) from Core Data")
+        displayZipCode(item)
+        return true
+      }
+    } else {
+      println("Error fetching: \(error) \(error?.userInfo)")
+    }
+    return false
+  }
+  
+  func loadFromAPI(code: String) {
+    let manager = RKObjectManager.sharedManager()
+    manager.getObjectsAtPath("/us/\(code)",
       parameters: nil,
       success: { (operation, mappingResult) -> Void in
-        let places = mappingResult.array() as! [Place]
-        for place in places {
-          self.addPlaceToMap(place)
-        }
+        let item = mappingResult.firstObject() as! ZipCode
+        println("Loaded \(item.code) from the API")
+        self.displayZipCode(item)
       },
       failure: { (operation, error) -> Void in
         println("\(error)")
       }
     )
+  }
+  
+  func loadZipCode(code: String) {
+    if (!fetchFromCoreData(code)) {
+      loadFromAPI(code)
+    }
+  }
+  
+  func displayZipCode(item: ZipCode) {
+    for place in item.places {
+      self.addPlaceToMap(place as! Place)
+    }
   }
   
   func addPlaceToMap(place: Place) {
