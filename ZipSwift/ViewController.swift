@@ -89,7 +89,7 @@ class ViewController: UIViewController {
     return false
   }
   
-  func loadFromAPI(code: String) {
+  func loadFromAPI(code: String) -> Bool {
     let manager = RKObjectManager.sharedManager()
     manager.getObjectsAtPath("/us/\(code)",
       parameters: nil,
@@ -102,12 +102,11 @@ class ViewController: UIViewController {
         println("\(error)")
       }
     )
+    return true
   }
   
   func loadZipCode(code: String) {
-    if (!fetchFromCoreData(code)) {
-      loadFromAPI(code)
-    }
+    fetchFromCoreData(code) || loadFromAPI(code)
   }
   
   func displayZipCode(item: ZipCode) {
