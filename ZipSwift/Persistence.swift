@@ -36,14 +36,4 @@ class Persistence: NSObject {
     // Return the managed object store
     return managedObjectStore
   }()
-  
-  func saveContext() {
-    var error: NSError? = nil
-    if let managedObjectContext = self.managedObjectStore?.mainQueueManagedObjectContext {
-      if managedObjectContext.hasChanges && !managedObjectContext.save(&error) {
-        println("Error saving: \(error?.description) \(error?.userInfo?.description)")
-        abort()
-      }
-    }
-  }
 }
